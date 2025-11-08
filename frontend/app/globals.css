@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --brand: #cabdff;
+    --brand-deep: #b6a6ff;
+    --brand-light: #e0d7ff;
+    --yellow: #f8e27c;
+    --teal: #a7e8e0;
+    --blush: #fbd0d9;
+  }
+
+  body {
+    @apply font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  /* Button Styles */
+  .btn-primary {
+    @apply px-6 py-3 bg-brand text-white rounded-xl font-medium 
+           hover:bg-brand-deep focus:ring-2 focus:ring-brand focus:ring-offset-2 
+           transition-all duration-200 ease-out;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-white dark:bg-dark-card text-brand border-2 border-brand 
+           rounded-xl font-medium hover:bg-brand hover:text-white 
+           focus:ring-2 focus:ring-brand focus:ring-offset-2 
+           transition-all duration-200 ease-out;
+  }
+
+  .btn-ghost {
+    @apply px-4 py-2 text-gray-600 dark:text-gray-300 
+           hover:bg-gray-100 dark:hover:bg-dark-card rounded-lg 
+           transition-colors duration-200;
+  }
+
+  /* Card Styles */
+  .card {
+    @apply bg-white dark:bg-dark-card rounded-2xl shadow-soft dark:shadow-soft-dark 
+           border border-light-border dark:border-dark-border 
+           transition-all duration-200;
+  }
+
+  .card-gradient {
+    @apply bg-gradient-to-br from-brand/20 via-brand/10 to-transparent 
+           backdrop-blur-sm rounded-2xl 
+           hover:scale-[1.02] transition-transform duration-200;
+  }
+
+  /* Input Styles */
+  .input {
+    @apply w-full px-4 py-3 bg-white dark:bg-dark-card 
+           border-2 border-light-border dark:border-dark-border 
+           rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 
+           outline-none transition-all duration-200;
+  }
+
+  .textarea {
+    @apply w-full px-4 py-3 bg-white dark:bg-dark-card 
+           border-2 border-light-border dark:border-dark-border 
+           rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 
+           outline-none transition-all duration-200 resize-none;
+  }
+
+  /* Glass Panel */
+  .glass-panel {
+    @apply bg-white/80 dark:bg-dark-card/80 backdrop-blur-md 
+           border border-light-border/50 dark:border-dark-border/50 
+           shadow-xl;
+  }
+
+  /* Focus Visible */
+  .focus-visible {
+    @apply focus-visible:ring-2 focus-visible:ring-brand 
+           focus-visible:ring-offset-2 outline-none;
+  }
+}
+
+@layer utilities {
+  /* Custom animations */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.3s ease-out;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.3s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.2s ease-out;
+  }
+
+  /* Scrollbar styles */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: var(--brand) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: var(--brand);
+    border-radius: 20px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
